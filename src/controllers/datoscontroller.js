@@ -3,22 +3,14 @@ const pool = require('../config/database');
 const datosController = {
   getAllDatos: async (req, res) => {
     try {
-      const { limit = 100, offset = 0 } = req.query;
+      const query = `SELECT * FROM treasure.uv_debt_draft`;
       
-      // PostgreSQL usa $1, $2 para parámetros
-      const query = `
-        SELECT * FROM treasure.uv_debt_draft  
-        LIMIT $1 OFFSET $2
-      `;
-      
-      const result = await pool.query(query, [parseInt(limit), parseInt(offset)]);
+      const result = await pool.query(query);
       
       res.json({
         success: true,
         data: result.rows,
         total: result.rowCount,
-        limit: parseInt(limit),
-        offset: parseInt(offset),
         timestamp: new Date().toISOString()
       });
       

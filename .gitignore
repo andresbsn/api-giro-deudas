@@ -75,7 +75,7 @@ node_modules/
 
 # FuseBox cache
 .fusebox/
-
+    
 # DynamoDB Local files
 .dynamodb/
 
