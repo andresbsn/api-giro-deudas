@@ -1,0 +1,3 @@
+# Ejemplo de llamada con API key
+curl -H "X-API-Key: tu_clave_secreta_proveedor" \
+  http://localhost:3000/api/datos
